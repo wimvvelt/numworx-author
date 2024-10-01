@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>nl.numworx.author</groupId>
+    <artifactId>parent</artifactId>
+    <version>1.0.0</version>
+    <relativePath>../</relativePath>
+  </parent>
+  <artifactId>author_runner</artifactId>
+
+  <name>author_runner</name>
+  <description>A simple author_runner.</description>
+  <!-- FIXME change it to the project's website -->
+  <url>http://www.example.com</url>
+
+  <properties>
+	<fi.dwo.boot>http://cdn.dwo.nl/bundles/BootLoader-2.0.jar</fi.dwo.boot>
+	<security>#</security>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+		<dependency>
+			<groupId>org.apache.felix</groupId>
+			<artifactId>org.apache.felix.framework</artifactId>
+			<version>7.0.5</version>
+		</dependency>
+		<dependency>
+		    <groupId>it.sauronsoftware</groupId>
+		    <artifactId>junique</artifactId>
+		    <version>1.0.4</version>
+		</dependency>
+		<dependency>
+			<groupId>nl.numworx.author</groupId>
+			<artifactId>ch.jm.osgi.provisioning</artifactId>
+			<version>1.0.0</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.osgi</groupId>
+					<artifactId>
+						org.osgi.service.provisioning
+					</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+  </dependencies>
+
+  <build>
+	  <finalName>${project.artifactId}</finalName>
+	  <resources>
+		<resource>
+			<directory>src/main/resources</directory>
+			<filtering>true</filtering>
+		</resource>
+	  </resources>
+	  <plugins>
+	     <plugin>
+	        <groupId>org.codehaus.mojo</groupId>
+	        <artifactId>build-helper-maven-plugin</artifactId>
+	        <version>3.0.0</version>
+	        <executions>
+	          <execution>
+	            <id>parse-version</id>
+	            <phase>generate-resources</phase>
+	            <goals>
+	              <goal>parse-version</goal>
+	            </goals>
+	            <configuration>
+	            	<propertyPrefix>version</propertyPrefix>
+	            </configuration>
+	          </execution>
+	        </executions>
+	      </plugin>    
+  			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>2.10</version>
+				<executions>
+					<execution>
+						<id>copy-dependencies</id>
+						<phase>package</phase>
+						<goals>
+							<goal>copy-dependencies</goal>
+						</goals>
+						<configuration>
+							<includeScope>runtime</includeScope>
+							<stripVersion>false</stripVersion>
+							<outputDirectory>${project.build.directory}</outputDirectory>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+ 			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<configuration>
+					<archive>
+						<manifest>
+							<useUniqueVersions>false</useUniqueVersions>
+							<addClasspath>true</addClasspath>
+							<mainClass>nl.numworx.author.NumworxAuthor</mainClass>
+						</manifest>
+							<manifestEntries>
+								<Add-Opens>java.base/jdk.internal.loader</Add-Opens>
+								<Add-Exports>java.desktop/sun.awt.www.content.image</Add-Exports>
+							</manifestEntries>
+					</archive>
+				</configuration>
+			</plugin>
+	  </plugins>
+  </build>
+  <repositories>
+	<repository>
+		<id>spring</id>
+		<name>spring.io</name>
+		<url>https://raw.githubusercontent.com/terjedahl/junique/master/maven2/</url>	
+	</repository>	
+  </repositories>  
+</project>
