@@ -5,7 +5,7 @@
     "main": "index.js",
     "preferGlobal": true,
     "repository": "https://github.com/wimvvelt/numworx-author",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "jdeploy": {
         "jdk": false,
         "args": [
@@ -13,7 +13,7 @@
             "-Dapp.path={{ app.path }}"
         ],
         "javaVersion": "11",
-        "bundles": ["mac-arm64"],
+        "bundles": ["mac-arm64", "mac-x64", "win"],
         "jar": "author_runner/target/author_runner.jar",
         "javafx": false,
         "title": "Numworx Author"
