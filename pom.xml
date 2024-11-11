@@ -24,6 +24,18 @@
 
   <build>
         <plugins>
+			<plugin>
+				<groupId>com.amashchenko.maven.plugin</groupId>
+				<artifactId>gitflow-maven-plugin</artifactId>
+				<version>1.21.0</version>
+				<configuration>
+					   <gitFlowConfig>
+        					<productionBranch>main</productionBranch>
+        					<developmentBranch>develop</developmentBranch>
+						</gitFlowConfig>
+						<pushRemote>false</pushRemote>
+				</configuration>
+			</plugin>
     		<plugin>
             	<groupId>external.atlassian.jgitflow</groupId>
             	<artifactId>jgitflow-maven-plugin</artifactId>
