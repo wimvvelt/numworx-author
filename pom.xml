@@ -20,6 +20,7 @@
   <modules>
 	<module>ch.jm.osgi.provisioning</module>
     <module>author_runner</module>
+    <module>MicroBoot</module>
   </modules>
 
   <build>
@@ -36,35 +37,6 @@
 						<pushRemote>false</pushRemote>
 				</configuration>
 			</plugin>
-    		<plugin>
-            	<groupId>external.atlassian.jgitflow</groupId>
-            	<artifactId>jgitflow-maven-plugin</artifactId>
-            	<version>1.0-m5.1</version>
-            	<configuration>
-                	<!-- see goals wiki page for configuration options -->
-                	<flowInitContext>
-             			<developBranchName>develop</developBranchName>  
-             			<masterBranchName>main</masterBranchName>    	
-                	</flowInitContext>
-                	<localOnly>true</localOnly>
-                	<allowSnapshots>false</allowSnapshots>
-                	<enableSshAgent>false</enableSshAgent>
-                	<noDeploy>true</noDeploy>
-                	<autoVersionSubmodules>true</autoVersionSubmodules>
-            	</configuration>
-			  <dependencies>
-			    <dependency>
-			      <groupId>com.jcraft</groupId>
-			      <artifactId>jsch</artifactId>
-			      <version>0.1.54</version>
-			    </dependency>
-				<dependency>
-				  <groupId>net.java.dev.jna</groupId>
-				  <artifactId>jna-platform</artifactId>
-				  <version>5.12.1</version>
-				</dependency>
-			  </dependencies>
-        	</plugin>
          </plugins>
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
       <plugins>

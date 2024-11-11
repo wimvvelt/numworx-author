@@ -41,15 +41,13 @@
 		<dependency>
 			<groupId>nl.numworx.author</groupId>
 			<artifactId>ch.jm.osgi.provisioning</artifactId>
-			<version>1.0.0</version>
-			<exclusions>
-				<exclusion>
-					<groupId>org.osgi</groupId>
-					<artifactId>
-						org.osgi.service.provisioning
-					</artifactId>
-				</exclusion>
-			</exclusions>
+			<version>1.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+		  <groupId>nl.numworx.author</groupId>
+		  <artifactId>MicroBoot</artifactId>
+		  <version>1.0.1-SNAPSHOT</version>
+		  <classifier>resources</classifier>
 		</dependency>
   </dependencies>
 

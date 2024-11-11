@@ -1,0 +1,10 @@
+DENY {
+   ( java.lang.RuntimePermission "setSecurityManager" "*")
+} "No System.setSecurityManager"
+ALLOW {
+   [ org.osgi.service.condpermadmin.BundleSignerCondition "CN=core, O=baz, C=DE" ]
+   ( java.security.AllPermission "*" "*")
+} "Bundles Signed by core get AllPermission"
+ALLOW {
+   ( java.security.AllPermission "*" "*")
+} "But give all other not denied permissions to all bundles"

@@ -25,8 +25,6 @@
 	        <configuration>
 	          <instructions>
 					<Bundle-Activator>ch.jm.osgi.provisioning.Activator</Bundle-Activator>
-					<Embed-Transitive>false</Embed-Transitive>
-	 				<Export-Package>org.osgi.service.provisioning</Export-Package>
 	 				<Private-Package>ch.jm.osgi.provisioning</Private-Package>
 	          </instructions>
 	        </configuration>
