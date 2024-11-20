@@ -1,0 +1,14 @@
+<assembly>
+  <id>resources</id>
+  <includeBaseDirectory>false</includeBaseDirectory>
+  <formats>
+    <format>jar</format>
+  </formats>
+  <files>
+  	<file>
+  	    <source>target/${project.build.finalName}-null.zip</source>
+        <outputDirectory>/</outputDirectory>
+        <destName>null.zip</destName>  	
+  	</file>
+  </files> 
+</assembly>

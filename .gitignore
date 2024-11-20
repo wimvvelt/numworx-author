@@ -17,3 +17,5 @@ buildNumber.properties
 .classpath
 .settings/
 .DS_Store
+jdeploy/
+jdeploy-bundle/

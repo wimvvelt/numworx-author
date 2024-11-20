@@ -25,8 +25,6 @@
 	        <configuration>
 	          <instructions>
 					<Bundle-Activator>ch.jm.osgi.provisioning.Activator</Bundle-Activator>
-					<Embed-Transitive>false</Embed-Transitive>
-	 				<Export-Package>org.osgi.service.provisioning</Export-Package>
 	 				<Private-Package>ch.jm.osgi.provisioning</Private-Package>
 	          </instructions>
 	        </configuration>
@@ -37,7 +35,7 @@
 	<parent>
 		<groupId>nl.numworx.author</groupId>
 		<artifactId>parent</artifactId>
-		<version>1.0.0</version>
+		<version>1.0.1</version>
 		<relativePath>../</relativePath>
 	</parent>
 </project>

@@ -1,0 +1,29 @@
+<assembly>
+  <id>null</id>
+  <includeBaseDirectory>false</includeBaseDirectory>
+  <formats>
+    <format>zip</format>
+  </formats>
+  <fileSets>
+     <fileSet>
+    	<directory>target/provision</directory>
+    	<outputDirectory>.</outputDirectory>
+      <includes>
+        <include>**/*.*</include>
+      </includes>
+    </fileSet>
+     <fileSet>
+    	<directory>target/dependency</directory>
+    	<outputDirectory>.</outputDirectory>
+      <includes>
+        <include>**/*.*</include>
+      </includes>
+    </fileSet>
+    <fileSet>
+    	<directory>target</directory>
+    	<outputDirectory>.</outputDirectory>
+    	<includes><include>${project.build.finalName}.jar</include></includes>
+    </fileSet>
+  </fileSets>
+ 
+</assembly>
