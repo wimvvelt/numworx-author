@@ -17,8 +17,6 @@
   <url>http://www.example.com</url>
 
   <properties>
-	<fi.dwo.boot>http://cdn.dwo.nl/bundles/BootLoader-2.0.jar</fi.dwo.boot>
-	<fi.dwo.target>numworx-author</fi.dwo.target>
 	<security>#</security>
   </properties>
 

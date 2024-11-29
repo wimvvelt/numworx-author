@@ -29,7 +29,8 @@
 	    		<artifactId>org.osgi.service.log</artifactId>
 	    	</exclusion>
 	    </exclusions>
-	</dependency>
+	    <optional>true</optional>
+ 	</dependency>
    
 	<dependency>
 	  	<groupId>org.knopflerfish.kf6.bundle.repository</groupId>
@@ -45,6 +46,7 @@
   				<artifactId>repository-API</artifactId>
   			</exclusion>
   		</exclusions>
+  		<optional>true</optional>
 	</dependency>
   	<dependency>
   		<groupId>org.osgi</groupId>
@@ -62,11 +64,13 @@
 	    		<artifactId>org.eclipse.concierge</artifactId>
 	    	</exclusion>
 	    </exclusions>
+	    <optional>true</optional>
 	</dependency>
 	<dependency>
 	    <groupId>org.osgi</groupId>
 	    <artifactId>org.osgi.service.repository</artifactId>
 	    <version>1.1.0</version>
+	    <optional>true</optional>
 	</dependency>
 	<dependency>
 			<groupId>org.eclipse.concierge</groupId>
