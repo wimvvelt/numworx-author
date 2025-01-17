@@ -92,4 +92,18 @@
       </plugin>
     </plugins>
   </reporting>
+  <profiles>
+	  <profile>
+		  <id>acc</id>
+		  <activation>
+			  <activeByDefault>false</activeByDefault>
+		  </activation>
+		  <properties>
+		  	<fi.dwo.cdn>https://test-dwo-nl.s3.amazonaws.com</fi.dwo.cdn>
+		  	<fi.dwo.documentbase>https://test.dwo.nl/dwo/</fi.dwo.documentbase>
+			<fi.dwo.boot>${fi.dwo.cdn}/BootLoader-2.0.jar</fi.dwo.boot>
+			<fi.dwo.target>numworx-author</fi.dwo.target>			  
+		  </properties>
+	  </profile>
+  </profiles>
 </project>
