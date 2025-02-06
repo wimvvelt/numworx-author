@@ -106,10 +106,6 @@ public class MicroServer {
 		
 		map.put(Constants.FRAMEWORK_STORAGE, dir + File.separator + target + "-cache");
 		
-		if("true".equals(props.getProperty("fi.dwo.properties")))
-			map.put("fi.dwo.documentbase", MicroServer.class.getResource("resources/").toExternalForm());
-		else 
-			map.remove("fi.dwo.properties");
 		URL resource = MicroServer.class.getResource("/null.zip");
 		String null_zip = resource == null ? "https://cdn.dwo.nl/bundles/null.zip" : resource.toExternalForm();
         map.put(ProvisioningService.PROVISIONING_REFERENCE, null_zip);
