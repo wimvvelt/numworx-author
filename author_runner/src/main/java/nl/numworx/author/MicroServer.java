@@ -46,7 +46,6 @@ public class MicroServer {
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public static void main(String[] args) throws Exception {
 	    System.setProperty("apple.eawt.quitStrategy", "CLOSE_ALL_WINDOWS");
-	    System.setProperty("java.security.policy","all.policy");
 	    
 		Preferences pref = Preferences.userRoot().node("fi/microserver");
 		String uuid = pref.get("uuid", null);
@@ -86,6 +85,9 @@ public class MicroServer {
 		InputStream in = MicroServer.class.getResourceAsStream("resources/DWO.properties");
 		props.load(in);
 		in.close();
+		String policy = props.getProperty("java.security.policy");
+	    if (policy != null)
+	    	System.setProperty("java.security.policy",policy);
 		
 		
 		map.put(Constants.FRAMEWORK_SYSTEMPACKAGES_EXTRA, 
