@@ -15,10 +15,11 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>11</maven.compiler.source>
     <maven.compiler.target>11</maven.compiler.target>
-  	<fi.dwo.cdn>https://cdn.dwo.nl</fi.dwo.cdn>
-  	<fi.dwo.documentbase>https://app.dwo.nl/dwo/</fi.dwo.documentbase>
-	<fi.dwo.boot>${fi.dwo.cdn}/BootLoader-2.0.jar</fi.dwo.boot>
-	<fi.dwo.target>numworx-author</fi.dwo.target>
+    <parentbase>..</parentbase>
+<!--  	<fi.dwo.cdn>https://cdn.dwo.nl</fi.dwo.cdn>-->
+<!--  	<fi.dwo.documentbase>https://app.dwo.nl/dwo/</fi.dwo.documentbase>-->
+<!--	<fi.dwo.boot>${fi.dwo.cdn}/BootLoader-2.0.jar</fi.dwo.boot>-->
+<!--	<fi.dwo.target>numworx-author</fi.dwo.target>-->
   </properties>
 
   <modules>
@@ -28,7 +29,7 @@
   </modules>
 
   <build>
-        <plugins>
+      <plugins>
 			<plugin>
 				<groupId>com.amashchenko.maven.plugin</groupId>
 				<artifactId>gitflow-maven-plugin</artifactId>
@@ -44,6 +45,24 @@
          </plugins>
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
       <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>properties-maven-plugin</artifactId>
+        <version>1.2.1</version>
+        <executions>
+          <execution>
+            <phase>initialize</phase>
+            <goals>
+              <goal>read-project-properties</goal>
+            </goals>
+            <configuration>
+              <files>
+                <file>${parentbase}/runtime.properties</file>
+              </files>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
         <plugin>
           <artifactId>maven-clean-plugin</artifactId>
           <version>3.4.0</version>
@@ -101,7 +120,7 @@
 		  <properties>
 		  	<fi.dwo.cdn>https://test-dwo-nl.s3.amazonaws.com</fi.dwo.cdn>
 		  	<fi.dwo.documentbase>https://test.dwo.nl/dwo/</fi.dwo.documentbase>
-			<fi.dwo.boot>${fi.dwo.cdn}/BootLoader-2.0.jar</fi.dwo.boot>
+			<fi.dwo.boot>${fi.dwo.cdn}/bundles/BootLoader-2.0.jar</fi.dwo.boot>
 			<fi.dwo.target>numworx-author</fi.dwo.target>			  
 		  </properties>
 	  </profile>

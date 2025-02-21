@@ -59,6 +59,10 @@
 		</resource>
 	  </resources>
 	  <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>properties-maven-plugin</artifactId>
+      </plugin>
 	     <plugin>
 	        <groupId>org.codehaus.mojo</groupId>
 	        <artifactId>build-helper-maven-plugin</artifactId>
