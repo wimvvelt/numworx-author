@@ -6,7 +6,7 @@
   <parent>
     <groupId>nl.numworx.author</groupId>
     <artifactId>parent</artifactId>
-    <version>1.0.2-SNAPSHOT</version>
+    <version>1.0.2</version>
     <relativePath>../</relativePath>
   </parent>
   <artifactId>author_runner</artifactId>
@@ -40,12 +40,12 @@
 		<dependency>
 			<groupId>nl.numworx.author</groupId>
 			<artifactId>ch.jm.osgi.provisioning</artifactId>
-			<version>1.0.2-SNAPSHOT</version>
+			<version>1.0.2</version>
 		</dependency>
 		<dependency>
 		  <groupId>nl.numworx.author</groupId>
 		  <artifactId>MicroBoot</artifactId>
-		  <version>1.0.2-SNAPSHOT</version>
+		  <version>1.0.2</version>
 		  <classifier>resources</classifier>
 		</dependency>
   </dependencies>
