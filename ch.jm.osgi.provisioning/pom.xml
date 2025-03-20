@@ -35,7 +35,7 @@
 	<parent>
 		<groupId>nl.numworx.author</groupId>
 		<artifactId>parent</artifactId>
-		<version>1.0.2</version>
+		<version>1.0.3-SNAPSHOT</version>
 		<relativePath>../</relativePath>
 	</parent>
 </project>
