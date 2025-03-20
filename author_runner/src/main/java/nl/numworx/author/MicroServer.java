@@ -46,7 +46,6 @@ public class MicroServer {
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public static void main(String[] args) throws Exception {
 	    System.setProperty("apple.eawt.quitStrategy", "CLOSE_ALL_WINDOWS");
-	    System.setProperty("java.security.policy","all.policy");
 	    
 		Preferences pref = Preferences.userRoot().node("fi/microserver");
 		String uuid = pref.get("uuid", null);
@@ -86,6 +85,9 @@ public class MicroServer {
 		InputStream in = MicroServer.class.getResourceAsStream("resources/DWO.properties");
 		props.load(in);
 		in.close();
+		String policy = props.getProperty("java.security.policy");
+	    if (policy != null)
+	    	System.setProperty("java.security.policy",policy);
 		
 		
 		map.put(Constants.FRAMEWORK_SYSTEMPACKAGES_EXTRA, 
@@ -106,10 +108,6 @@ public class MicroServer {
 		
 		map.put(Constants.FRAMEWORK_STORAGE, dir + File.separator + target + "-cache");
 		
-		if("true".equals(props.getProperty("fi.dwo.properties")))
-			map.put("fi.dwo.documentbase", MicroServer.class.getResource("resources/").toExternalForm());
-		else 
-			map.remove("fi.dwo.properties");
 		URL resource = MicroServer.class.getResource("/null.zip");
 		String null_zip = resource == null ? "https://cdn.dwo.nl/bundles/null.zip" : resource.toExternalForm();
         map.put(ProvisioningService.PROVISIONING_REFERENCE, null_zip);

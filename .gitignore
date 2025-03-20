@@ -19,3 +19,4 @@ buildNumber.properties
 .DS_Store
 jdeploy/
 jdeploy-bundle/
+*.dwo

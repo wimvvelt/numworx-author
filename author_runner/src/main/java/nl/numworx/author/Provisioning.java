@@ -4,6 +4,8 @@ import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.Dictionary;
+import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.Properties;
 import java.util.zip.ZipInputStream;
@@ -70,6 +72,24 @@ public class Provisioning {
       } catch (Exception oops) {
 
       }
+    } else {
+// Reset to context 
+    	Hashtable<String, Object> reset = new Hashtable<>();
+    	Dictionary info = s.getInformation();
+    	Enumeration keys = info.keys();
+    	while (keys.hasMoreElements()) {
+			String key = (String) keys.nextElement();
+			String value = context.getProperty(key);
+			Object old = info.get(key);
+			if (old instanceof String && ! old.equals(value) && value != null) {
+				reset.put(key, value);
+			}
+		}
+    	if (!reset.isEmpty()) {
+            reset.put("fi.dwo.provisioning", "null"); // reset to null
+    		s.addInformation(reset);
+    	}
+    	
     }
     return s;
   }

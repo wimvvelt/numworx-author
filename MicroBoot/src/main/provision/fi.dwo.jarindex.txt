@@ -1,0 +1,1 @@
+${fi.dwo.cdn}/jars/index.xml
