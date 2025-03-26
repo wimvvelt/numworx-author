@@ -14,11 +14,8 @@
   <name>author_runner</name>
   <description>A simple author_runner.</description>
   <!-- FIXME change it to the project's website -->
-  <url>http://www.example.com</url>
+  <url>http://www.dwo.nl</url>
 
-  <properties>
-	<security>#</security>
-  </properties>
 
   <dependencies>
     <dependency>

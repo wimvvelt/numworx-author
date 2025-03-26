@@ -85,10 +85,6 @@ public class MicroServer {
 		InputStream in = MicroServer.class.getResourceAsStream("resources/DWO.properties");
 		props.load(in);
 		in.close();
-		String policy = props.getProperty("java.security.policy");
-	    if (policy != null)
-	    	System.setProperty("java.security.policy",policy);
-		
 		
 		map.put(Constants.FRAMEWORK_SYSTEMPACKAGES_EXTRA, 
 // Java 8,9 en 10, 11 alleen met een eigen java
