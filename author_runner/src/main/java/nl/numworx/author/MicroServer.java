@@ -5,6 +5,7 @@ import java.io.InputStream;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.lang.reflect.InvocationTargetException;
+import java.net.URI;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -70,6 +71,7 @@ public class MicroServer {
 	    String dir = System.getProperty("user.home");
 	    if(isWindows) dir += File.separator + "AppData" + File.separator + "Local";
 	    else if(isMac) dir += File.separator + "Library" + File.separator + "Application Support";
+		FelixLogger logger = new FelixLogger();
 
 		String system = "javafx.application,javafx.beans.property,javafx.beans.value,javafx.collections,javafx.concurrent,javafx.embed.swing,javafx.event,javafx.scene,javafx.scene.control,javafx.scene.web,javafx.util,javax.swing,javax.swing.border,netscape.javascript," + 
 						"com.apple.eawt,";
@@ -85,7 +87,7 @@ public class MicroServer {
 		InputStream in = MicroServer.class.getResourceAsStream("resources/DWO.properties");
 		props.load(in);
 		in.close();
-		
+		insertProperties(props, logger);
 		map.put(Constants.FRAMEWORK_SYSTEMPACKAGES_EXTRA, 
 // Java 8,9 en 10, 11 alleen met een eigen java
 		  system
@@ -115,7 +117,6 @@ public class MicroServer {
 		}
 		
 		cleanOnExit(true);
-		FelixLogger logger = new FelixLogger();
 
 		Map m = map;
 		m.put(FelixConstants.LOG_LOGGER_PROP, logger); // Must be Felix
@@ -143,7 +144,26 @@ public class MicroServer {
 		}	
 	}
 
-  private static void displayException(final Throwable t) {
+  private static void insertProperties(Properties props, FelixLogger logger) throws Exception {
+		try {
+			String documentBase = props.getProperty("fi.dwo.documentbase");
+			URI u = URI.create(documentBase).resolve("DWO.properties");
+			Properties base = new Properties();
+			InputStream in = u.toURL().openStream();
+			base.load(in);
+			in.close();
+			URI jars = URI.create(base.getProperty("jarUrlPath"));
+			props.put("fi.dwo.jarindex", jars.resolve("index.xml").toString());
+			URI bundles = jars.resolve("../bundles/").normalize();
+			props.put("fi.dwo.bundles", bundles.toString());
+			props.put("fi.dwo.repository", bundles.resolve("index.xml").toString());			
+			props.put("fi.dwo.boot0", bundles.resolve("BootLoader-2.0.jar").toString());
+		} catch(Exception e) {
+			logger.log(FelixLogger.LOG_ERROR, "insertProperties failed", e);
+		}		
+	}
+
+private static void displayException(final Throwable t) {
 		try {
 			Runnable run = 
 			new Runnable() {
