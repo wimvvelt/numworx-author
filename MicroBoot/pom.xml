@@ -3,7 +3,7 @@
 	<parent>
 	  <groupId>nl.numworx.author</groupId>
 	  <artifactId>parent</artifactId>
-	  <version>1.0.2</version>
+	  <version>1.0.3</version>
 	</parent>
   
   <artifactId>MicroBoot</artifactId>
@@ -145,27 +145,6 @@
 							<includeScope>runtime</includeScope>
 						</configuration>
 					</execution>
-					<execution>
-						<id>provision-dependencies</id>
-						<phase>process-resources</phase>
-						<goals><goal>copy</goal></goals>
-						<configuration>
-  							<outputDirectory>target/provision</outputDirectory>
-  							<stripVersion>true</stripVersion>
-							<artifactItems>
-								<artifactItem>
-								    <groupId>org.eclipse.concierge</groupId>
-								    <artifactId>org.eclipse.concierge.extension.permission</artifactId>
-								    <version>5.0.0</version>
-								</artifactItem>
-<!-- 								<artifactItem> -->
-<!-- 			<groupId>org.eclipse.concierge</groupId> -->
-<!-- 			<artifactId>org.eclipse.concierge.shell</artifactId> -->
-<!-- 			<version>5.0.0</version> -->
-<!-- 								</artifactItem> -->
-							</artifactItems>
-						</configuration>
-					</execution>
 				</executions>
 			</plugin>
   	  <plugin>
@@ -179,7 +158,6 @@
 				<Export-Package />
 				<Private-Package>fi.microserver.microboot</Private-Package>
 				<DynamicImport-Package>org.eclipse.concierge.shell.commands</DynamicImport-Package>
-
           </instructions>
         </configuration>
       </plugin>

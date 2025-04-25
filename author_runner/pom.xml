@@ -6,7 +6,7 @@
   <parent>
     <groupId>nl.numworx.author</groupId>
     <artifactId>parent</artifactId>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
     <relativePath>../</relativePath>
   </parent>
   <artifactId>author_runner</artifactId>
@@ -14,11 +14,8 @@
   <name>author_runner</name>
   <description>A simple author_runner.</description>
   <!-- FIXME change it to the project's website -->
-  <url>http://www.example.com</url>
+  <url>http://www.dwo.nl</url>
 
-  <properties>
-	<security>#</security>
-  </properties>
 
   <dependencies>
     <dependency>
@@ -40,12 +37,12 @@
 		<dependency>
 			<groupId>nl.numworx.author</groupId>
 			<artifactId>ch.jm.osgi.provisioning</artifactId>
-			<version>1.0.2</version>
+			<version>1.0.3</version>
 		</dependency>
 		<dependency>
 		  <groupId>nl.numworx.author</groupId>
 		  <artifactId>MicroBoot</artifactId>
-		  <version>1.0.2</version>
+		  <version>1.0.3</version>
 		  <classifier>resources</classifier>
 		</dependency>
   </dependencies>

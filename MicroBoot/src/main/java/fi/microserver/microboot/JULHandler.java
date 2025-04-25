@@ -1,8 +1,6 @@
 package fi.microserver.microboot;
 
 import java.io.IOException;
-import java.util.Dictionary;
-import java.util.Hashtable;
 import java.util.logging.Handler;
 import java.util.logging.Level;
 import java.util.logging.LogRecord;
@@ -12,7 +10,6 @@ import java.util.logging.SimpleFormatter;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.FrameworkUtil;
-import org.osgi.framework.ServiceReference;
 import org.osgi.service.log.LogLevel;
 import org.osgi.service.log.LogService;
 import org.osgi.util.tracker.ServiceTracker;

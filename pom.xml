@@ -5,7 +5,7 @@
 
   <groupId>nl.numworx.author</groupId>
   <artifactId>parent</artifactId>
-  <version>1.0.2</version>
+  <version>1.0.3</version>
   <packaging>pom</packaging>
 
   <name>parent pom</name>
@@ -16,10 +16,6 @@
     <maven.compiler.source>11</maven.compiler.source>
     <maven.compiler.target>11</maven.compiler.target>
     <parentbase>..</parentbase>
-<!--  	<fi.dwo.cdn>https://cdn.dwo.nl</fi.dwo.cdn>-->
-<!--  	<fi.dwo.documentbase>https://app.dwo.nl/dwo/</fi.dwo.documentbase>-->
-<!--	<fi.dwo.boot>${fi.dwo.cdn}/BootLoader-2.0.jar</fi.dwo.boot>-->
-<!--	<fi.dwo.target>numworx-author</fi.dwo.target>-->
   </properties>
 
   <modules>
@@ -36,7 +32,7 @@
 				<version>1.21.0</version>
 				<configuration>
 					   <gitFlowConfig>
-        					<productionBranch>main</productionBranch>
+        					<productionBranch>master</productionBranch>
         					<developmentBranch>develop</developmentBranch>
 						</gitFlowConfig>
 						<pushRemote>false</pushRemote>
@@ -124,5 +120,15 @@
 			<fi.dwo.target>numworx-author</fi.dwo.target>			  
 		  </properties>
 	  </profile>
+	  	  <profile>
+		  <id>local</id>
+		  <activation>
+			  <activeByDefault>false</activeByDefault>
+		  </activation>
+		  <properties>
+		  	<fi.dwo.documentbase>http://localhost:8080/dwo/</fi.dwo.documentbase>
+		  </properties>
+	  </profile>
+
   </profiles>
 </project>
