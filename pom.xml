@@ -32,7 +32,7 @@
 				<version>1.21.0</version>
 				<configuration>
 					   <gitFlowConfig>
-        					<productionBranch>main</productionBranch>
+        					<productionBranch>master</productionBranch>
         					<developmentBranch>develop</developmentBranch>
 						</gitFlowConfig>
 						<pushRemote>false</pushRemote>
