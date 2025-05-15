@@ -37,7 +37,7 @@
 		<dependency>
 			<groupId>nl.numworx.author</groupId>
 			<artifactId>ch.jm.osgi.provisioning</artifactId>
-			<version>1.0.4-SNAPSHOT</version>
+			<version>1.0.3</version>
 		</dependency>
 		<dependency>
 		  <groupId>nl.numworx.author</groupId>
