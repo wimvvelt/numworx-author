@@ -19,7 +19,7 @@
   </properties>
 
   <modules>
-<!--	<module>ch.jm.osgi.provisioning</module>-->
+	<module>ch.jm.osgi.provisioning</module>
     <module>author_runner</module>
     <module>MicroBoot</module>
   </modules>
