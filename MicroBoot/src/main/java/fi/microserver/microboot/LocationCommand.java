@@ -1,7 +1,10 @@
 package fi.microserver.microboot;
 
 import java.io.PrintStream;
-import java.util.Date;
+import java.time.Instant;
+import java.time.LocalTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.Enumeration;
 import java.util.Stack;
 
@@ -46,7 +49,7 @@ public class LocationCommand implements ShellCommandGroup {
 		Bundle[] bundles = context.getBundles();
 		out.println("Locations:");
 		for (Bundle b: bundles) {
-			out.println(b.getBundleId() + ": " + b.getSymbolicName() + "/" + b.getVersion() + " " + b.getLocation() + " " + new Date(b.getLastModified()));
+			out.println(b.getBundleId() + ": " + b.getSymbolicName() + "/" + b.getVersion() + " " + b.getLocation() + " " + Instant.ofEpochMilli(b.getLastModified()));
 		}
 		out.println();
 	}
@@ -74,9 +77,28 @@ public class LocationCommand implements ShellCommandGroup {
 						if (cnt -- <= 1) break;
 					}
 				}
-				while(!stack.isEmpty()) out.println(stack.pop());
+				while(!stack.isEmpty()) println(stack.pop());
 			}
 		}
+	}
+
+	private void println(LogEntry entry) {
+		//out.println(entry);
+		Instant instant  = Instant.ofEpochMilli(entry.getTime());
+		LocalTime time = LocalTime.ofInstant(instant, ZoneId.systemDefault());
+		out.print((time));
+		out.print(" ");
+		out.print(entry.getLogLevel().toString());
+		out.print(" [");
+		out.print(entry.getBundle().getBundleId());
+		out.print("] ");
+		out.print(entry.getLocation().getClassName());
+		out.print(":");
+		out.print(entry.getLocation().getLineNumber());
+		out.print(" ");
+		out.println(entry.getMessage());
+		Throwable t = entry.getException();
+		if (t != null) t.printStackTrace(out);		
 	}
 
 }
