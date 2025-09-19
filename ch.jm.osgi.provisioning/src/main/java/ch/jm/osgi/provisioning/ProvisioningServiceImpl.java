@@ -440,8 +440,8 @@ public class ProvisioningServiceImpl implements ProvisioningService,
     }
 
     private void startBundle(Bundle b) {
-        //Give AllPermission as per the spec
-        PermissionSupport.newInstance().setAllPermission(this.bundleContext, b);
+        //Give AllPermission as per the spec, never used in numworx author
+        //PermissionSupport.newInstance().setAllPermission(this.bundleContext, b);
 
         try {
             b.start();

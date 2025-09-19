@@ -1,6 +1,6 @@
 {
     "bin": {"author_runner": "jdeploy-bundle/jdeploy.js"},
-    "author": "",
+    "author": "Wim van Velthoven",
     "description": "",
     "main": "index.js",
     "preferGlobal": true,
@@ -8,15 +8,29 @@
     "version": "1.0.4",
     "jdeploy": {
         "jdk": false,
-        "args": [
-            "-Xmx2G",
-            "-Dapp.path={{ app.path }}"
-        ],
+        "args": ["-Xmx2G"],
+        "publishTargets": [{
+            "name": "github: NumworxAuthor",
+            "type": "GITHUB",
+            "url": ""
+        }],
         "javaVersion": "11",
-        "bundles": ["mac-arm64", "mac-x64", "win"],
+        "bundles": [
+            "mac-arm64",
+            "mac-x64",
+            "win"
+        ],
         "jar": "author_runner/target/author_runner.jar",
         "javafx": false,
-        "title": "Numworx Author"
+        "title": "Numworx Author",
+        "downloadPage": {"platforms": [
+            "mac-high-sierra",
+            "mac-arm64",
+            "mac-x64",
+            "linux-x64",
+            "windows-x64",
+            "linux-arm64"
+        ]}
     },
     "dependencies": {
         "command-exists-promise": "^2.0.2",
