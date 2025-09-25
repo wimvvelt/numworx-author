@@ -169,6 +169,7 @@
         <extensions>true</extensions>
         <configuration>
           <instructions>
+   				<_snapshot>${osgi.qualifier}</_snapshot>
 				<Bundle-Activator>fi.microserver.microboot.Activator</Bundle-Activator>
 				<Export-Package />
 				<Private-Package>fi.microserver.microboot</Private-Package>

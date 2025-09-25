@@ -5,6 +5,7 @@ import java.time.Instant;
 import java.time.LocalTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
+import java.util.Dictionary;
 import java.util.Enumeration;
 import java.util.Stack;
 
@@ -14,6 +15,7 @@ import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceReference;
 import org.osgi.service.log.LogEntry;
 import org.osgi.service.log.LogReaderService;
+import org.osgi.service.provisioning.ProvisioningService;
 
 public class LocationCommand implements ShellCommandGroup {
 
@@ -28,7 +30,8 @@ public class LocationCommand implements ShellCommandGroup {
 	@Override
 	public String getHelp() {
 		return "numworx.location -- display location of bundles\n"
-				+ "numworx.log [n] -- display log, [n] entries";
+				+ "numworx.log [n] -- display log, [n] entries\n"
+				+ "numworx.provision -- display provision entries";
 	}
 
 	@Override
@@ -41,7 +44,31 @@ public class LocationCommand implements ShellCommandGroup {
 		if ("log".equals(command)) {
 			handleLog(args); return;
 		}
+		if ("provision".equals(command)) {
+			handleProvision(args);
+			return;
+		}
 		handleLocation();
+		
+	}
+
+	private void handleProvision(String[] args) {
+		ServiceReference<ProvisioningService> ref = context.getServiceReference(ProvisioningService.class);
+		ProvisioningService service = context.getService(ref);
+		Dictionary dictionary = service.getInformation();
+		context.ungetService(ref);
+		Enumeration keys = dictionary.keys();
+		while (keys.hasMoreElements()) {
+			Object key = keys.nextElement();
+			Object value = dictionary.get(key);
+			Object extra = context.getProperty(key.toString());
+			if (extra == null || value.equals(extra)) 
+				extra = "";
+			else 
+				extra = " (" + extra + ")"; 
+			out.println(key + "=" + value + extra);
+		}
+		out.println();
 		
 	}
 
