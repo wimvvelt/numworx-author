@@ -1,1 +1,1 @@
-${version.majorVersion}.${version.minorVersion}.${version.incrementalVersion}
+${version.majorVersion}.${version.minorVersion}.${version.incrementalVersion}.${osgi.qualifier}
