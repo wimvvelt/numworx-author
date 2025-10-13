@@ -113,6 +113,14 @@
 					</archive>
 				</configuration>
 			</plugin>
+			<plugin>
+		       <groupId>org.codehaus.mojo</groupId>
+        		<artifactId>exec-maven-plugin</artifactId>
+        		<version>3.6.1</version>
+				<configuration>
+					<mainClass>nl.numworx.author.NumworxAuthor</mainClass>
+				</configuration>
+			</plugin>
 	  </plugins>
   </build>
   <repositories>
