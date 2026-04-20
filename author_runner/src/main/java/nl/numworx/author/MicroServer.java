@@ -153,11 +153,14 @@ public class MicroServer {
 			base.load(in);
 			in.close();
 			URI jars = URI.create(base.getProperty("jarUrlPath"));
+			String loader = props.getProperty("fi.dwo.boot0", "BootLoader-2.0.jar");
+			int last = loader.lastIndexOf('/');
+			loader = loader.substring(last+1);
 			props.put("fi.dwo.jarindex", jars.resolve("index.xml").toString());
 			URI bundles = jars.resolve("../bundles/").normalize();
 			props.put("fi.dwo.bundles", bundles.toString());
 			props.put("fi.dwo.repository", bundles.resolve("index.xml").toString());			
-			props.put("fi.dwo.boot0", bundles.resolve("BootLoader-2.0.jar").toString());
+			props.put("fi.dwo.boot0", bundles.resolve(loader).toString());
 		} catch(Exception e) {
 			logger.log(FelixLogger.LOG_ERROR, "insertProperties failed", e);
 		}		

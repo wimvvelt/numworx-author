@@ -53,7 +53,8 @@ class StartBoot {
 
   static final String BOOTLOADER  = "fi.dwo.BootLoader";
 
-  private  Bundle installBoot(String BOOT) throws BundleException {
+  private  Bundle installBoot(String BOOT, String BOOTLOADER) throws BundleException {
+	if (BOOTLOADER == null) BOOTLOADER = StartBoot.BOOTLOADER; // fallback
     Repository repos = context.getService(reposRegistration);
     RequirementBuilder builder;
     builder = repos.newRequirementBuilder("osgi.identity");
@@ -79,7 +80,7 @@ class StartBoot {
             Collection<BundleCapability> res = fw.findProviders(r);
             for (BundleCapability bc:res) {
                 bc.getRevision().getBundle().uninstall();
-                return installBoot(BOOT); // recurse
+                return installBoot(BOOT, BOOTLOADER); // recurse
             }
         }
         throw e;
@@ -102,8 +103,9 @@ class StartBoot {
  	reposRegistration = service.create(u, null, this);
 
  	String BOOT = getProperty("fi.dwo.boot", ps);
+ 	String BOOTLOADER = getProperty("fi.dwo.bootloader", ps);
     context.ungetService(ref);
-    Bundle boot = installBoot(BOOT);
+    Bundle boot = installBoot(BOOT, BOOTLOADER);
     boot.start(Bundle.START_TRANSIENT);
   }
   
