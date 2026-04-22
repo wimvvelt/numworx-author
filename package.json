@@ -10,7 +10,7 @@
         "jdk": false,
         "args": ["-Xmx2G"],
         "publishTargets": [{
-            "name": "github: NumworxAuthor",
+            "name": "github: NumworTeacherTool",
             "type": "GITHUB",
             "url": ""
         }],
@@ -22,7 +22,7 @@
         ],
         "jar": "author_runner/target/author_runner.jar",
         "javafx": false,
-        "title": "Numworx Author",
+        "title": "Numworx Teacher Tool",
         "downloadPage": {"platforms": [
             "mac-high-sierra",
             "mac-arm64",
@@ -40,7 +40,7 @@
         "shelljs": "^0.8.4"
     },
     "license": "ISC",
-    "name": "NumworxAuthor",
+    "name": "NumworxTeacherTool",
     "files": ["jdeploy-bundle"],
     "scripts": {"test": "echo \"Error: no test specified\" && exit 1"},
     "homepage": "https://www.dwo.nl/"
