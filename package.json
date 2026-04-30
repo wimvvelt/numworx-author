@@ -14,7 +14,7 @@
             "type": "GITHUB",
             "url": ""
         }],
-        "javaVersion": "11",
+        "javaVersion": "17",
         "bundles": [
             "mac-arm64",
             "mac-x64",

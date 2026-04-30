@@ -15,7 +15,10 @@
   <description>A simple author_runner.</description>
   <!-- FIXME change it to the project's website -->
   <url>http://www.dwo.nl</url>
-
+  <properties>
+	<maven.compiler.target>17</maven.compiler.target>
+    <maven.compiler.source>17</maven.compiler.source>
+  </properties>
 
   <dependencies>
     <dependency>
