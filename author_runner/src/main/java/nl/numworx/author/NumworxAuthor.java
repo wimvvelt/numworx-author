@@ -1,7 +1,6 @@
 package nl.numworx.author;
 
 import java.io.File;
-import java.util.Arrays;
 
 import javax.swing.JOptionPane;
 
@@ -20,11 +19,6 @@ public class NumworxAuthor {
 	    if (args.length == 0 && new File(NUMWORX_DWO).canRead()) {
 	        args = new String[] { NUMWORX_DWO };
 	    }
-	    System.out.println("Starting MAIN");
-	    System.out.println("args: " + Arrays.asList(args));
-	    System.out.println("done");
-	    
-	    
 		MicroServer.main(args);
 	}
 
