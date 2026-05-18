@@ -1,17 +1,16 @@
 {
     "bin": {"author_runner": "jdeploy-bundle/jdeploy.js"},
     "author": "Wim van Velthoven",
-    "description": "",
     "main": "index.js",
     "preferGlobal": true,
-    "repository": "https://github.com/wimvvelt/numworx-author",
+    "repository": {"url": "https://github.com/wimvvelt/numworx-author"},
     "version": "1.0.4",
     "jdeploy": {
-        "jdk": false,
         "args": ["-Xmx2G"],
+        "fallbackToUniversal": false,
         "publishTargets": [{
-            "name": "github: NumworTeacherTool",
-            "type": "GITHUB",
+            "name": "npm: npm",
+            "type": "NPM",
             "url": ""
         }],
         "javaVersion": "17",
@@ -21,16 +20,17 @@
             "win"
         ],
         "jar": "author_runner/target/author_runner.jar",
-        "javafx": false,
         "title": "Numworx Teacher Tool",
         "downloadPage": {"platforms": [
+            "mac-x64",
+            "linux-arm64",
             "mac-high-sierra",
             "mac-arm64",
-            "mac-x64",
-            "linux-x64",
             "windows-x64",
-            "linux-arm64"
-        ]}
+            "linux-x64"
+        ]},
+        "commands": {"teachertool": {}},
+        "platformBundlesEnabled": false
     },
     "dependencies": {
         "command-exists-promise": "^2.0.2",
