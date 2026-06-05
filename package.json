@@ -1,6 +1,7 @@
 {
-    "bin": {"author_runner": "jdeploy-bundle/jdeploy.js"},
+    "bin": {"teachertool": "jdeploy-bundle/jdeploy.js"},
     "author": "Wim van Velthoven",
+    "description": "Teacher Tool voor arrangeren lesmateriaal",
     "main": "index.js",
     "preferGlobal": true,
     "repository": {"url": "https://github.com/wimvvelt/numworx-author"},
